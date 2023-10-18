@@ -1,38 +1,213 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 .App {
-  text-align: center;
+	background-color: rgb(216, 216, 216);
+}
+.content {
+	height: 100%;
+}
+.container {
+	padding: 30px 3vw;
+}
+.phone {
+	text-decoration: none;
+	color: rgb(123, 138, 138);
+	border-bottom: 1px solid rgb(123, 138, 138);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* _____________ Шапка ______________________ */
+.header__container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	/* padding: 0 20px; */
+	background-color: #f5f3f3;
+	color: rgb(123, 138, 138);
+	font-size: 20px;
+	padding: 15px 3vw;
+
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+.header__list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.list__item {
+	margin-left: 20px;
+	list-style-type: none;
+	cursor: pointer;
+}
+.list__item:hover {
+	color: rgb(88, 218, 218);
+}
+.header__contacts {
+	display: flex;
+	flex-direction: column;
+}
+.header__contactsTop {
+	display: flex;
+	align-items: center;
+}
+.header__image {
+	fill: red;
+}
+/* _____________ Главная ______________________ */
+.promo {
+	background: url(../public/images/villa.jpg);
+	min-height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0px -250px;
+	filter: drop-shadow(5px 3px 6px #666565);
+}
+.promo__title {
+	margin-top: 30vh;
+	color: black;
+}
+.promo__description {
+	margin-top: 5vh;
+	max-width: 40vw;
+	line-height: 32px;
+	font-weight: 400;
+	backdrop-filter: blur(5px);
+}
+.promo__contacts {
+	margin-top: 3vh;
+	display: flex;
+	align-items: center;
+}
+.promo__image {
+	margin-right: 0.5vw;
+}
+.promo__phone {
+	color: black;
+	font-size: 24px;
+}
+.promo__buttons {
+	margin-top: 4vh;
+	width: 24vw;
+	display: flex;
+	justify-content: space-between;
+}
+.promo__button {
+	padding: 10px 20px;
+	border-radius: 7px;
+	font-size: 18px;
+	font-weight: 500;
+	cursor: pointer;
+}
+.btn__booking {
+	background-color: rgb(61, 153, 61);
+	border: green;
+}
+.btn__callback {
+	background: transparent;
+	border: 1px solid black;
+}
+/* _____________ Преимущества ______________________ */
+.advantages__container {
+	margin-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	justify-content: center;
+}
+.advantages__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 33%;
+	max-height: 40%;
+}
+.advantages__img {
+	width: 30vw;
+	height: 40vh;
+	filter: drop-shadow(8px 8px 4px #666565);
+
+	object-fit: cover;
+	border-radius: 15px;
+}
+.advantages__title {
+	margin-top: 20px;
+	font-size: 24px;
+	font-weight: 700;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* _______________ Варианты жилья ___________________ */
+
+.rooms__container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	justify-content: center;
+}
+.rooms__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 33%;
+	max-height: 40%;
+}
+.rooms__title {
+	margin-top: 20px;
+	font-size: 24px;
+	font-weight: 400;
+}
+.rooms__image {
+	margin-top: 15px;
+	width: 30vw;
+	height: 40vh;
+	background-color: red;
+	filter: drop-shadow(8px 8px 4px #666565);
+
+	object-fit: cover;
+	border-radius: 15px;
+}
+.rooms__price {
+	margin-top: 15px;
+	font-size: 18px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* _______________ Поблизости ___________________ */
 
-.App-link {
-  color: #61dafb;
+.nearby__container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px;
+	justify-content: center;
 }
+.nearby__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 30%;
+	max-height: 30%;
+	/* margin: 0 15px; */
+}
+.nearby__title {
+	margin-top: 20px;
+	font-size: 24px;
+	font-weight: 400;
+}
+.nearby__image {
+	margin-top: 15px;
+	width: 25vw;
+	height: 40vh;
+	background-color: red;
+	filter: drop-shadow(8px 8px 4px #666565);
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	object-fit: cover;
+	border-radius: 15px;
+}
+.nearby__description {
+	margin-top: 15px;
+	font-size: 18px;
 }
