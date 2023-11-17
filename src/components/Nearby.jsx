@@ -13,7 +13,7 @@ const Nearby = (props) => {
 	return (
 		<div className="nearby__item">
 			<div className="nearby__title">{props.title}</div>
-			<img className="nearby__image" src={props.imageUrl} />
+			<img className='nearby__img' src={props.imageUrl} alt={props.title} />
 			<div className="nearby__description">{props.description}</div>
 		</div>
 	)
