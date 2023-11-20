@@ -1,5 +1,5 @@
-import { Map, YMaps, Placemark } from '@pbe/react-yandex-maps';
 import React from 'react';
+import { Map, YMaps, Placemark } from '@pbe/react-yandex-maps';
 
 import './App.css';
 
@@ -10,6 +10,7 @@ import Nearby, { nearbyList } from './components/Nearby';
 import PopUp from './components/modal/PopUp';
 import Booking from './components/modal/Booking';
 import OneClick from './components/modal/OneClick';
+
 
 
 function App() {
