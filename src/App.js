@@ -10,6 +10,7 @@ import Nearby, { nearbyList } from './components/Nearby';
 import PopUp from './components/modal/PopUp';
 import Booking from './components/modal/Booking';
 import OneClick from './components/modal/OneClick';
+import Footer from './components/Footer';
 
 
 
@@ -47,7 +48,7 @@ function App() {
 				</div>
 				<div className="advantages" id='1'>
 					<div className="container">
-						<h2 className='advantages__welcome'>На территории комплекса вас ждут:</h2>
+						<h2 className='advantages__welcome'>На территории комплекса</h2>
 						<div className="advantages__container">
 							{
 								advList.map((item) => (<Advantages key={item.title} {...item} />))
@@ -59,7 +60,7 @@ function App() {
 
 				<div className="rooms" id='2'>
 					<div className='container'>
-						<h2 className="rooms__welcome popup__bg">Номера и цены</h2>
+						<h2 className="rooms__welcome">Номера и цены</h2>
 						<div className="rooms__container">
 							{
 								roomsList.map((item) => (<Rooms key={item.title} {...item} open={open} setOpen={setOpen} roomId={roomId} setRoomId={setRoomId} />))
@@ -116,8 +117,7 @@ function App() {
 				</div>
 
 			</div>
-			<footer>
-			</footer>
+			<Footer />
 		</div >
 	);
 }

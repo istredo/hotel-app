@@ -1,11 +1,10 @@
 import React from 'react'
-import { API_URL, CHAT_ID } from './utils/const';
+import { API_URL, CHAT_ID } from '../utils/const';
 import axios from 'axios';
 
 const OneClick = (props) => {
 
 	const onClose = () => props.setOneclick(!props.oneclick);
-
 
 
 	// ________ controlled input ________________
@@ -37,6 +36,16 @@ const OneClick = (props) => {
 			parse_mode: 'HTML',
 			text: message
 		})
+			.then((res) => {
+				setNumber('');
+				setName('');
+			})
+			.catch((err) => {
+				console.log(err)
+			})
+			.finally(() => {
+				console.log('Форма успешно отправлена')
+			})
 
 	}
 
@@ -50,9 +59,9 @@ const OneClick = (props) => {
 
 				<form onSubmit={handleSubmit} className='booking__form'>
 					<p>ФИО</p>
-					<input type='text' onChange={onChangeName} value={name} className='form__text' />
+					<input type='text' onChange={onChangeName} value={name} maxlength="30" placeholder='Как могу обращаться?' className='form__text' />
 					<p>Телефон</p>
-					<input type='tel' onChange={onChangePhone} value={number} className='form__text' />
+					<input type='tel' onChange={onChangePhone} value={number} maxlength="20" placeholder='Введите номер в любом формате' className='form__text form__des' />
 					<button className='promo__button btn__booking btn__popup'>Забронировать</button>
 				</form>
 				<p className='disclaimer'>Нажимая кнопку вы подтверждаете, что ознакомились с Политикой конфиденциальности и принимаете ее условия. Мы не передаем Вашу персональную информацию третьим лицам</p>

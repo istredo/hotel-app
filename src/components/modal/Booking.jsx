@@ -1,5 +1,5 @@
 import React from 'react';
-import { API_URL, CHAT_ID } from './utils/const';
+import { API_URL, CHAT_ID } from '../utils/const';
 import axios from 'axios';
 
 const Booking = (props) => {
@@ -20,7 +20,9 @@ const Booking = (props) => {
 		setName(event.target.value);
 	}
 	const onChangeDateIn = (event) => {
+
 		setDateIn(event.target.value);
+
 	}
 	const onChangeDateOut = (event) => {
 		setDateOut(event.target.value);
@@ -31,9 +33,14 @@ const Booking = (props) => {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 
-		let message = `<b>Заявка с сайта!</b>\n`;
-		message += `Дата заезда:\n <b>${dateIn}</b>\n`;
-		message += `Дата выезда:\n <b>${dateOut}</b>\n`;
+		const dateFunction = (date) => {
+			let dateResult = date.split('-').reverse().join('-')
+			return dateResult
+		}
+
+		let message = `<b>Бронирование с сайта!</b>\n`;
+		message += `Дата заезда:\n <b>${dateFunction(dateIn)}</b>\n`;
+		message += `Дата выезда:\n <b>${dateFunction(dateOut)}</b>\n`;
 		message += `ФИО:\n <b>${name}</b>\n`;
 		message += `Телефон:\n <b>${number}</b>\n`;
 
@@ -58,9 +65,9 @@ const Booking = (props) => {
 					<p>Выберите дату выезда</p>
 					<input type='date' onChange={onChangeDateOut} value={dateOut} />
 					<p>ФИО</p>
-					<input onChange={onChangeName} value={name} type='text' className='form__text' />
-					<p>Телефон*</p>
-					<input onChange={onChangePhone} value={number} type='tel' className='form__text' />
+					<input type='text' onChange={onChangeName} value={name} maxlength="30" placeholder='Как могу обращаться?' className='form__text' />
+					<p>Телефон</p>
+					<input type='tel' onChange={onChangePhone} value={number} maxlength="20" placeholder='Введите номер в любом формате' className='form__text form__des' />
 					<button className='promo__button btn__booking btn__popup'>Забронировать</button>
 				</form>
 				<p className='disclaimer'>Нажимая кнопку вы подтверждаете, что ознакомились с Политикой конфиденциальности и принимаете ее условия. Мы не передаем Вашу персональную информацию третьим лицам</p>

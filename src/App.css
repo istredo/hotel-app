@@ -109,8 +109,6 @@
 	font-size: 18px;
 	font-weight: 700;
 	cursor: pointer;
-}
-.btn__booking {
 	background-color: rgb(61, 153, 61);
 	border: green;
 	margin-right: 5vw;
@@ -126,17 +124,17 @@
 	flex-wrap: wrap;
 
 	margin-top: 50px;
-	gap: 25px;
+	gap: 40px;
 }
 .advantages__item {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	max-width: 33%;
+	max-width: 30%;
 	max-height: 40%;
 }
 .advantages__img {
-	width: 30vw;
+	width: 27vw;
 	height: 40vh;
 	box-shadow: 8px 8px 4px #666565;
 
@@ -175,14 +173,15 @@
 	height: 90%;
 
 	cursor: pointer;
-	box-shadow: 8px 8px 4px #666565;
+	box-shadow: 6px 6px 4px #666565;
 
 	border-radius: 15px;
 
-	transition: transform 500ms ease;
+	transition: 500ms ease;
 }
 .rooms__image:hover {
 	transform: scale(1.05);
+	box-shadow: 12px 12px 10px #666565;
 }
 .rooms__price {
 	margin-top: 15px;
@@ -256,12 +255,29 @@
 	margin-top: 15px;
 }
 
+/* ___________ Подвал _______________________ */
+
+footer {
+	background-color: rgb(123, 138, 138, 1);
+	height: 7vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	font-weight: 400;
+}
+.footer__text {
+	margin-right: 20px;
+}
+.footer__icon {
+	margin: 10px;
+}
+
 /* ___________ PopUp-комнаты _______________________ */
 .popup__bg {
 	background-color: rgb(123, 138, 138, 0.8);
 	position: fixed;
 	left: 0;
-
 	top: 0;
 	width: 100vw;
 	height: 100vh;
@@ -276,14 +292,26 @@
 .popup__item {
 	background-color: #f5f3f3;
 	border-radius: 20px;
-	padding: 50px;
+	padding: 15px 20px 20px 20px;
 	z-index: 10;
 	position: relative;
 	overflow: hidden;
 }
-
+.popup__desc {
+	font-weight: 500;
+	font-size: 14px;
+}
+.popup__list {
+	font-weight: 300;
+	font-size: 14px;
+	margin-left: 30px;
+	line-height: 1.3;
+}
 table {
-	margin-top: 20px;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 1;
+	margin: 0 auto;
 	width: 500px;
 	border: 1px solid rgb(123, 138, 138, 0.4);
 }
@@ -301,16 +329,63 @@ td {
 .btn__close {
 	padding: 5px 10px;
 	position: absolute;
-	width: 60px;
-	top: 2vh;
-	right: 2vw;
+	width: 50px;
+	top: 0.1vh;
+	right: 1vw;
 
 	border-radius: 50%;
 	border-color: transparent;
 	cursor: pointer;
 }
 .btn__popup {
-	margin-top: 30px;
+	padding: 5px 10px;
+	font-weight: 500;
+	font-size: 18px;
+	display: block;
+	margin: 10px auto 0 auto;
+}
+
+/* ___________ Карусель номеров____________________ */
+
+.popup__carousel {
+	margin: 0 auto;
+	max-height: 25vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+}
+.carousel__container {
+	display: flex;
+}
+.carousel_arrow {
+	max-width: 30px;
+	z-index: 100;
+	cursor: pointer;
+	position: absolute;
+	border-radius: 50%;
+	background-color: transparent;
+	transition: background-color 300ms ease-in;
+	user-select: none;
+}
+.arrow__left {
+	top: 50%;
+	left: 0.5vw;
+}
+.arrow__right {
+	transform: rotate(180deg);
+	top: 50%;
+	right: 0.5vw;
+}
+.carousel_arrow:hover {
+	background-color: rgba(97, 179, 179, 0.7);
+}
+
+.carousel__item {
+	width: 100%;
+	object-fit: cover;
+	z-index: 50;
 }
 
 /* ___________ PopUp-бронь _______________________ */
@@ -325,7 +400,7 @@ td {
 	padding: 50px 30px;
 	position: relative;
 	overflow: hidden;
-	max-width: 450px;
+	max-width: 650px;
 }
 .booking__title {
 	margin-top: 30px;
@@ -349,12 +424,19 @@ td {
 .form__text {
 	padding: 5px 8px;
 	font-size: 18px;
+	width: 350px;
+}
+.form__des {
+	margin-bottom: 50px;
 }
 .disclaimer {
 	font-size: 14px;
 	color: rgb(123, 138, 138);
 	opacity: 0.6;
 	margin-top: 30px;
+}
+.btn__booking {
+	margin-right: 5vw;
 }
 /* ___________ PopUp-один клик ____________________ */
 
@@ -372,10 +454,6 @@ td {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
-}
-.form__text {
-	margin-bottom: 20px;
-	/* color: rgb(123, 138, 138); */
 }
 .oneClick__title {
 	margin-top: 30px;
