@@ -296,6 +296,7 @@ footer {
 	z-index: 10;
 	position: relative;
 	overflow: hidden;
+	transform: scale(0.8);
 }
 .popup__desc {
 	font-weight: 500;
@@ -401,6 +402,7 @@ td {
 	position: relative;
 	overflow: hidden;
 	max-width: 650px;
+	transform: scale(0.8);
 }
 .booking__title {
 	margin-top: 30px;
@@ -449,6 +451,7 @@ td {
 	position: relative;
 	overflow: hidden;
 	max-width: 450px;
+	transform: scale(0.8);
 }
 .booking__form {
 	display: flex;
@@ -474,7 +477,7 @@ td {
 	transition: 500ms ease-in;
 }
 
-.test {
-	transform: scale(1.2);
-	transition: 1s ease-in;
+.itemActive {
+	transform: scale(1);
+	transition: 0.5s ease-in;
 }

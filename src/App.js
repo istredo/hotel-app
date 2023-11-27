@@ -87,7 +87,7 @@ function App() {
 							<div className='contacts__phone contacts__border'>Телефон:<br />
 								<a className='contacts__number phone' href="tel:+79990000">+7-999-00-00</a>
 							</div>
-							<button className='btn__callback promo__button contacts__btn'>Обратный звонок</button>
+							<button onClick={oneClickHandler} className='btn__callback promo__button contacts__btn'>Обратный звонок</button>
 						</div>
 						{!open && <YMaps>
 							<Map
@@ -104,15 +104,10 @@ function App() {
 								<Placemark defaultGeometry={[43.399126, 39.953167]} />
 							</Map>
 						</YMaps>}
-						{
-							open && <PopUp key={roomId} roomId={roomId} setOpen={setOpen} open={open} setBooking={setBooking} booking={booking} />
-						}
-						{
-							booking && <Booking setBooking={setBooking} booking={booking} />
-						}
-						{
-							oneclick && <OneClick setOneclick={setOneclick} oneclick={oneclick} />
-						}
+						<PopUp key={roomId} roomId={roomId} setOpen={setOpen} open={open} setBooking={setBooking} booking={booking} />
+						<Booking setBooking={setBooking} booking={booking} />
+						<OneClick setOneclick={setOneclick} oneclick={oneclick} />
+
 					</div>
 				</div>
 
