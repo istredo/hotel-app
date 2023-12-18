@@ -5,7 +5,7 @@ import { CAROUSEL_WIDTH } from "../utils/const";
 
 const PopUp = (props) => {
 	let list = roomsList[props.roomId]
-	const onClose = () => props.setOpen(!props.open);
+	const onClose = () => props.setOpen(false);
 	const bookingHandler = () => {
 		props.setBooking(!props.booking)
 		props.setOpen(!props.open)
@@ -63,8 +63,8 @@ const PopUp = (props) => {
 				<table>
 					<tbody>
 						<tr>
-							<th>Дата</th>
-							<th>Стоимость</th>
+							<th>Дата:</th>
+							<th>Стоимость:</th>
 						</tr>
 						<tr>
 							<td>01.01 - 30.06</td>

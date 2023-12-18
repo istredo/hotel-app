@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const OneClick = (props) => {
 
-	const onClose = () => props.setOneclick(!props.oneclick);
+	const onClose = () => props.setOneclick(false);
 
 
 	// ________ controlled input ________________

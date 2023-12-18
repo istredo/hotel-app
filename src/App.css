@@ -50,6 +50,8 @@
 }
 .list__item:hover {
 	color: rgb(88, 218, 218);
+	transform: scale(1.05);
+	transition: 0.5s;
 }
 .header__contacts {
 	display: flex;

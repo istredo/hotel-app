@@ -3,7 +3,7 @@ import { API_URL, CHAT_ID } from '../utils/const';
 import axios from 'axios';
 
 const Booking = (props) => {
-	const onClose = () => props.setBooking(!props.booking);
+	const onClose = () => props.setBooking(false);
 
 
 	// ________ controlled input ________________
