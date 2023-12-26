@@ -36,7 +36,7 @@ const OneClick = (props) => {
 			parse_mode: 'HTML',
 			text: message
 		})
-			.then((res) => {
+			.then(() => {
 				setNumber('');
 				setName('');
 			})

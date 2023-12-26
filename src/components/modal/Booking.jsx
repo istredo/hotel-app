@@ -47,7 +47,7 @@ const Booking = (props) => {
 		axios.post(API_URL, {
 			chat_id: CHAT_ID,
 			parse_mode: 'HTML',
-			text: message
+			text: message,
 		})
 
 	}

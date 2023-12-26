@@ -20,6 +20,7 @@
 }
 
 /* _____________ Шапка ______________________ */
+
 .header__container {
 	display: flex;
 	flex-direction: row;
@@ -66,6 +67,10 @@
 	top: 4px;
 	right: 4px;
 }
+iframe {
+	width: 40px;
+	height: 40px;
+}
 /* _____________ Главная ______________________ */
 .promo {
 	background: url(../public/images/villa.jpg);
@@ -91,7 +96,6 @@
 	margin-top: 3vh;
 	display: flex;
 	align-items: center;
-	/* position: absolute; */
 }
 .promo__image {
 	margin-right: 0.5vw;
@@ -119,7 +123,9 @@
 	background: transparent;
 	border: 1px solid black;
 }
+
 /* _____________ Преимущества ______________________ */
+
 .advantages__container {
 	display: flex;
 	justify-content: center;
@@ -191,6 +197,7 @@
 }
 
 /* _______________ Поблизости ___________________ */
+
 .nearby__container {
 	display: flex;
 	justify-content: center;
@@ -232,6 +239,7 @@
 }
 
 /* ___________ Контакты _______________________ */
+
 .contacts__container {
 	display: flex;
 	justify-content: center;
@@ -276,6 +284,7 @@ footer {
 }
 
 /* ___________ PopUp-комнаты _______________________ */
+
 .popup__bg {
 	background-color: rgb(123, 138, 138, 0.8);
 	position: fixed;

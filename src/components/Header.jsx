@@ -5,9 +5,7 @@ const Header = () => {
 	return (
 		<header>
 			<div className="header__container">
-				<svg className='header__logo' xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24">
-					<path stroke="#7b8a8a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9.778V15M5 15V9.7773m16 2.2225-5.4332-6.036c-1.2357-1.3728-1.8535-2.0591-2.5812-2.3125a3 3 0 0 0-1.9737.0001c-.7276.2535-1.3453.94-2.5808 2.313L3 11.9997m0 8.005s.6942-1.1192 1.8-.9952C6.0608 19.151 7.1327 21 8.4 21c1.2672 0 2.3327-1.9904 3.6-1.9904S14.3327 21 15.6 21c1.2672 0 2.3392-1.849 3.6-1.9904 1.1058-.124 1.8.9952 1.8.9952M10 11h4v4h-4v-4Z" />
-				</svg>
+				<iframe title='animated__logo' frameBorder="0" src="https://www.svgmator.com/embed/bolAaHatPBPXPAk?onload=false&onclick=false&onhover=true"></iframe>
 				<ul className='header__list'>
 					{
 						headerList.map((li, i) => (<a href={`#${i}`} key={i} className='list__item'>{li}</a>))
