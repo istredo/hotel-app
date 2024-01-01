@@ -1,19 +1,30 @@
-import { roomsList } from "../Rooms"
+import { roomsList } from "../sections/RoomsSection"
 import React from "react"
 import { CAROUSEL_WIDTH } from "../utils/const";
+import { useSelector, useDispatch } from 'react-redux'
+import { modalClose, modalToggle } from '../../redux/slices/roomsSlice'
+import { bookingToggle } from '../../redux/slices/bookingSlice'
 
 
-const PopUp = (props) => {
-	let list = roomsList[props.roomId]
-	const onClose = () => props.setOpen(false);
+
+const PopUp = () => {
+
+	const modal = useSelector((state) => state.rooms.open)
+	const roomdId = useSelector((state) => state.rooms.roomId)
+	const dispatch = useDispatch()
+
+
+	let list = roomsList[roomdId]
+
+	// переключение модальных окон
 	const bookingHandler = () => {
-		props.setBooking(!props.booking)
-		props.setOpen(!props.open)
+		dispatch(modalToggle())
+		dispatch(bookingToggle())
 	}
 
-
-
+	// карусель изображений
 	let [carousel, setCarousel] = React.useState(0)
+
 	let max__width = -(list.images.length * CAROUSEL_WIDTH) + CAROUSEL_WIDTH
 	let handleArrowRight = () => {
 		setCarousel((currentPosition) => {
@@ -32,9 +43,9 @@ const PopUp = (props) => {
 
 
 	return (
-		<div className={props.open ? 'popup__bg overlayActive' : 'popup__bg'} onClick={onClose}>
-			<div className={props.open ? 'popup__item itemActive' : 'popup__item'} onClick={e => e.stopPropagation()}>
-				<svg className="btn__close" onClick={onClose} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" strokeWidth="1.5"></circle> <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#000000" strokeWidth="1.5" strokeLinecap="round"></path> </g></svg>
+		<div className={modal ? 'popup__bg overlayActive' : 'popup__bg'} onClick={() => dispatch(modalClose())}>
+			<div className={modal ? 'popup__item itemActive' : 'popup__item'} onClick={e => e.stopPropagation()}>
+				<svg className="btn__close" onClick={() => dispatch(modalClose())} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" strokeWidth="1.5"></circle> <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#000000" strokeWidth="1.5" strokeLinecap="round"></path> </g></svg>
 				<h3>{list.title}</h3>
 
 				<div className='popup__carousel' style={{ maxWidth: `${CAROUSEL_WIDTH}vw`, }}>

@@ -17,6 +17,5 @@ const Advantages = (props) => {
 		</div >
 	)
 }
-// src={props.imageUrl}
-// 
+
 export default Advantages
