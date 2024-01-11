@@ -1,11 +1,9 @@
 import React from 'react'
 import Advantages, { advList } from './sections/Advantages';
-import Rooms, { roomsList } from './Rooms';
 import Nearby, { nearbyList } from './Nearby'
 import PopUp from './modal/PopUp';
 import Booking from './modal/Booking';
 import OneClick from './modal/OneClick';
-import { Map, YMaps, Placemark } from '@pbe/react-yandex-maps';
 
 import PromoSection from './sections/PromoSection'
 import ContactsSection from './sections/ContactsSection';
