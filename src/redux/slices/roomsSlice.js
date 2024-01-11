@@ -33,7 +33,7 @@ export default roomsSlice.reducer
 
 
 // import { useSelector, useDispatch } from 'react-redux'
-// import { modalOpen, modalClose, modalToggle } from '../redux/slices/roomsSlice'
+// import { modalOpen, modalClose, modalToggle, changeId } from '../redux/slices/roomsSlice'
 
 // const roomdId = useSelector((state) => state.roomdId.open)
 // const dispatch = useDispatch()

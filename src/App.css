@@ -361,6 +361,22 @@ td {
 	margin: 10px auto 0 auto;
 }
 
+.popUp__finaly {
+	position: absolute;
+	top: 50;
+	right: 50;
+	opacity: 0;
+	z-index: -10;
+	transition: 0.5s;
+
+	color: rgb(88, 218, 218, 0.7);
+	font-size: 1.5rem;
+	font-weight: 500;
+	background-color: #f5f3f3;
+	padding: 50px 70px;
+	border-radius: 15px;
+}
+
 /* ___________ Карусель номеров____________________ */
 
 .popup__carousel {

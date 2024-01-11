@@ -10,7 +10,8 @@ const Booking = () => {
 	const booking = useSelector((state) => state.booking.open)
 
 	const dispatch = useDispatch()
-
+	const finallyRef = React.useRef()
+	const itemRef = React.useRef()
 
 	// ________ controlled input ________________
 
@@ -55,13 +56,36 @@ const Booking = () => {
 			parse_mode: 'HTML',
 			text: message,
 		})
+			.then(() => {
+				setNumber('');
+				setName('');
+				setDateIn('');
+				setDateOut('');
+				itemRef.current.style.opacity = 0
+				finallyRef.current.style.opacity = 1
+				itemRef.current.style.visibility = 'hidden'
+			})
+			.catch((err) => {
+				console.log(err)
+			})
+			.finally(() => {
+				console.log('Форма успешно отправлена')
+				setTimeout(() => { close() }, 2000)
+				setTimeout(() => { itemRef.current.style.visibility = 'visible' }, 3000)
+			},)
 
+	}
+
+	function close() {
+		finallyRef.current.style.opacity = 0
+		itemRef.current.style.opacity = 1
+		dispatch(bookingClose())
 	}
 
 	return (
 		<div className={booking ? 'popup__bg overlayActive' : 'popup__bg'} onClick={() => dispatch(bookingClose())}>
 
-			<div className={booking ? 'booking__item itemActive' : 'booking__item'} onClick={e => e.stopPropagation()}>
+			<div className={booking ? 'booking__item itemActive' : 'booking__item'} onClick={e => e.stopPropagation()} ref={itemRef}>
 				<svg className="btn__close" onClick={() => dispatch(bookingClose())} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" strokeWidth="1.5"></circle> <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#000000" strokeWidth="1.5" strokeLinecap="round"></path> </g></svg>
 				<h3 className='booking__title'>Забронировать номер</h3>
 				<h4 className='booking__description'>Заполните форму. Мы свяжемся с Вами в ближайшее время.</h4>
@@ -78,6 +102,8 @@ const Booking = () => {
 				</form>
 				<p className='disclaimer'>Нажимая кнопку вы подтверждаете, что ознакомились с Политикой конфиденциальности и принимаете ее условия. Мы не передаем Вашу персональную информацию третьим лицам</p>
 			</div>
+			<div className="popUp__finaly" ref={finallyRef}> Спасибо за Вашу заявку! <br /> С вами свяжутся в ближайшее время. </div >
+
 		</div>
 	)
 }
