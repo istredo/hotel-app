@@ -1,7 +1,5 @@
 import React from 'react'
-import { API_URL, CHAT_ID } from '../utils/const';
 import axios from 'axios';
-
 
 import { useDispatch, useSelector } from 'react-redux'
 import { modalClose } from '../../redux/slices/oneClickSlice'
@@ -12,8 +10,6 @@ const OneClick = () => {
 	const dispatch = useDispatch()
 	const finallyRef = React.useRef()
 	const itemRef = React.useRef()
-
-
 	// ________ controlled input ________________
 
 	const [number, setNumber] = React.useState('');
@@ -38,8 +34,8 @@ const OneClick = () => {
 		message += `Телефон:\n <b>${number}</b>\n`;
 
 
-		axios.post(API_URL, {
-			chat_id: CHAT_ID,
+		axios.post(process.env.REACT_APP_API_URL, {
+			chat_id: process.env.REACT_APP_CHAT_ID,
 			parse_mode: 'HTML',
 			text: message
 		})

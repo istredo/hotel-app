@@ -1,5 +1,4 @@
 import React from 'react';
-import { API_URL, CHAT_ID } from '../utils/const';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux'
 import { bookingClose } from '../../redux/slices/bookingSlice'
@@ -7,6 +6,7 @@ import { bookingClose } from '../../redux/slices/bookingSlice'
 
 
 const Booking = () => {
+	console.log(process.env)
 	const booking = useSelector((state) => state.booking.open)
 
 	const dispatch = useDispatch()
@@ -51,8 +51,8 @@ const Booking = () => {
 		message += `ФИО:\n <b>${name}</b>\n`;
 		message += `Телефон:\n <b>${number}</b>\n`;
 
-		axios.post(API_URL, {
-			chat_id: CHAT_ID,
+		axios.post(process.env.REACT_APP_API_URL, {
+			chat_id: process.env.REACT_APP_CHAT_ID,
 			parse_mode: 'HTML',
 			text: message,
 		})
@@ -84,7 +84,6 @@ const Booking = () => {
 
 	return (
 		<div className={booking ? 'popup__bg overlayActive' : 'popup__bg'} onClick={() => dispatch(bookingClose())}>
-
 			<div className={booking ? 'booking__item itemActive' : 'booking__item'} onClick={e => e.stopPropagation()} ref={itemRef}>
 				<svg className="btn__close" onClick={() => dispatch(bookingClose())} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#000000" strokeWidth="1.5"></circle> <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" stroke="#000000" strokeWidth="1.5" strokeLinecap="round"></path> </g></svg>
 				<h3 className='booking__title'>Забронировать номер</h3>
